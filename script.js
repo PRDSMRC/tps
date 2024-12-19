@@ -1,31 +1,31 @@
-let stringa;
-let righe=[];
-let tabella = [];
-function leggi(input) {
-    let file = input.files[0]; 
-
-    let reader = new FileReader();
-
-    reader.readAsText(file);
-    
-    reader.onload = function(){
-        stringa = reader.result;
-        inserisci();
-    }
+function somma(){
+    let numInput=document.getElementById("demo").value
+    let numInput2=document.getElementById("demo2").value
+    let num1= parseFloat(numInput)
+    let num2= parseFloat(numInput2)
+    print=num1+num2
 }
-function inserisci(){
-    document.getElementById("titolo").innerHTML= "contenuto del file:"
-    let tab = document.getElementById("tabella")
-    righe=stringa.split("\n")
-    for(let n = 0; n< righe.length; n++){
-        tabella[n]=righe[n].split(",");
-        let nuovaRiga = tab.insertRow();
-        let anno = nuovaRiga.insertCell(0);
-        anno.innerHTML = tabella[n][0].replace(/"/g,' ');
-        let numero = nuovaRiga.insertCell(1);
-            numero.innerHTML = tabella[n][1].replace(/"/g,' ');
-           
-    }   
-
-
+function sottrazione(){
+    let numInput=document.getElementById("demo").value
+    let numInput2=document.getElementById("demo2").value
+    let num1= parseFloat(numInput)
+    let num2= parseFloat(numInput2)
+    print=num1-num2
+}
+function moltiplicazione(){
+    let numInput=document.getElementById("demo").value
+    let numInput2=document.getElementById("demo2").value
+    let num1= parseFloat(numInput)
+    let num2= parseFloat(numInput2)
+    print=num1*num2
+}
+function divisione(){
+    let numInput=document.getElementById("demo").value
+    let numInput2=document.getElementById("demo2").value
+    let num1= parseFloat(numInput)
+    let num2= parseFloat(numInput2)
+    print=num1/num2
+}
+function uguale(){
+    document.getElementById("dest").innerHTML=print
 }
