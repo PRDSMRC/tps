@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolatrice</title>
+    <link rel="stylesheet" href="calc1.css">
+</head>
+<body>
+    <div class="calcolatrice">
+        <input type="text" id="schermo">
+        <div class="buttons">
+            <button onclick="cancella()" id="cancella">Canc</button>            
+            <button onclick="aggiungi('7')">7</button>
+            <button onclick="aggiungi('8')">8</button>
+            <button onclick="aggiungi('9')">9</button>
+            <button onclick="aggiungi('/')">/</button>
+            <button onclick="aggiungi('4')">4</button>
+            <button onclick="aggiungi('5')">5</button>
+            <button onclick="aggiungi('6')">6</button>
+            <button onclick="aggiungi('*')">X</button>
+            <button onclick="aggiungi('1')">1</button>
+            <button onclick="aggiungi('2')">2</button>
+            <button onclick="aggiungi('3')">3</button>
+            <button onclick="aggiungi('-')">-</button>
+            <button onclick="aggiungi('+')">+</button>
+            <button onclick="aggiungi('0')">0</button>
+            <button onclick="risultato()" id="uguale">=</button>
+        </div>
+    </div>
+    <script src="scriptCalc1.js"></script>
+</body>
+</html>
