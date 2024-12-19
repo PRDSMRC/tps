@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrazione Dati</title>
+    <link rel="stylesheet" href="anag.css"> 
+</head>
+<body>
+
+    <h2>Registrazione Dati</h2>
+    <div class="container">
+        <div class="input">
+            <h1>Anagrafica</h1>
+            <input placeholder="Nome" type="text" id="Nome">
+            <input placeholder="Cognome" type="text" id="Cognome">
+            <input placeholder="Indirizzo" type="text" id="Indirizzo">
+            <input placeholder="Città" type="text" id="Città">
+            <input placeholder="Email" type="text" id="Email">
+            <input class="button" type="button" value="AGGIUNGI" onclick="stampa()">
+
+    <h3>Lista Dati Inseriti</h3>
+    <table id="datiTabella">
+            <tr>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Indirizzo</th>
+                <th>Città</th>
+                <th>Email</th>
+            </tr>
+
+    </table>
+
+    <script src="anag.js"></script> 
+</body>
+</html>
