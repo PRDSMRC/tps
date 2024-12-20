@@ -58,5 +58,5 @@ function svuotaTabella() {
         localStorage.removeItem("Info" + i);
         i++;
     }
-    localStorage.removeItem("cont");
+//    localStorage.removeItem("cont");
 }
