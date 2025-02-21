@@ -1,53 +1,52 @@
-let numero = 1
-let elenco = []
+let i = 0;
+let tabella = [];
 
-function aggiungi() {
-    let persona = {
+function salvaDati() {
+    const dati = {
         nome: document.getElementById("nome").value,
         cognome: document.getElementById("cognome").value,
-        via: document.getElementById("via").value,
-        paese: document.getElementById("paese").value,
-        email: document.getElementById("mail").value
-    }
-    
-    elenco.push(persona)
-    localStorage.setItem("persona" + numero, JSON.stringify(persona))
-    localStorage.setItem("totale", numero)
+        citta: document.getElementById("citta").value,
+        indirizzo: document.getElementById("indirizzo").value,
+        mail: document.getElementById("mail").value
+    };
 
-    document.getElementById("nome").value = ""
-    document.getElementById("cognome").value = ""
-    document.getElementById("via").value = ""
-    document.getElementById("paese").value = ""
-    document.getElementById("mail").value = ""
+    tabella.push(dati);
+    localStorage.setItem("tabella", JSON.stringify(tabella));
 
-    numero++
+    document.getElementById("nome").value = "";
+    document.getElementById("cognome").value = "";
+    document.getElementById("citta").value = "";
+    document.getElementById("indirizzo").value = "";
+    document.getElementById("mail").value = "";
+
+    inserisciDati();
 }
 
-function caricaTabella() {
-    let totale = localStorage.getItem("totale")
+function inserisciDati() {
+    let tab = document.getElementById("tabella");
+    tab.innerHTML = "";  
+    let t = JSON.parse(localStorage.getItem("tabella"));
 
-    for (let i = 0; i < totale; i++) {
-        let dati = localStorage.getItem("persona" + (i + 1))
+    for (let z = 0; z < t.length; z++) {
+        let utente = t[z];
+
+        let nuovaRiga = tab.insertRow();
+        let contatore = nuovaRiga.insertCell(0);
+        contatore.innerHTML = z + 1;
+
+        let nome = nuovaRiga.insertCell(1);
+        nome.innerHTML = utente.nome;
         
-        if (dati) {
-            let persona = JSON.parse(dati)
-            let riga = document.createElement("tr")
-            let cellaNum = document.createElement("th")
+        let cognome = nuovaRiga.insertCell(2);
+        cognome.innerHTML = utente.cognome;
 
-            cellaNum.innerHTML = i + 1
-            riga.appendChild(cellaNum)
+        let citta = nuovaRiga.insertCell(3);
+        citta.innerHTML = utente.citta;
 
-            for (let valore of Object.values(persona)) {
-                let cella = document.createElement("td")
-                cella.innerHTML = valore
-                riga.appendChild(cella)
-            }
+        let indirizzo = nuovaRiga.insertCell(4);
+        indirizzo.innerHTML = utente.indirizzo;
 
-            document.getElementById("lista").appendChild(riga)
-        }
+        let mail = nuovaRiga.insertCell(5);
+        mail.innerHTML = utente.mail;
     }
-}
-
-function svuotaDati() {
-    localStorage.clear()
 }
