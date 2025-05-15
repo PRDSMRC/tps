@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ricevuta - PARESHOES</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Ricevuta Acquisto - PARESHOES</h1>
+    <nav>
+      <a href="index.html">Torna al negozio</a>
+      <a href="carrello.html">Torna al carrello</a>
+    </nav>
+  </header>
+
+  <main id="contenuto-ricevuta" class="container-centered"></main>
+
+  <script>
+    const contenutoRicevuta = document.getElementById("contenuto-ricevuta");
+
+    function mostraRicevuta() {
+      const carrello = JSON.parse(localStorage.getItem("carrello")) || [];
+
+      if (carrello.length === 0) {
+        contenutoRicevuta.innerHTML = "<p>Non ci sono prodotti acquistati.</p>";
+        return;
+      }
+
+      let totale = 0;
+
+      function prezzoToNumero(prezzoStr) {
+        return parseFloat(prezzoStr.replace("€", "").replace(",", "."));
+      }
+
+      let html = `<h2>Dettaglio acquisto</h2><ul class="ricevuta-list">`;
+
+      carrello.forEach(prodotto => {
+        let prezzoNum = prezzoToNumero(prodotto.prezzo);
+        totale += prezzoNum;
+        html += `<li><strong>${prodotto.nome}</strong> - ${prodotto.prezzo}</li>`;
+      });
+
+      html += `</ul><h3>Totale: €${totale.toFixed(2).replace(".", ",")}</h3><p>Grazie per il tuo acquisto!</p>`;
+
+      contenutoRicevuta.innerHTML = html;
+
+      // Svuota il carrello dopo acquisto
+      localStorage.removeItem("carrello");
+    }
+
+    document.addEventListener("DOMContentLoaded", mostraRicevuta);
+  </script>
+</body>
+</html>

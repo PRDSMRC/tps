@@ -1,0 +1,56 @@
+[
+  {
+    "nome": "Nike Air Max 90",
+    "descrizione": "Scarpe sportive classiche con design iconico e ammortizzazione Air.",
+    "prezzo": "€129,99",
+    "immagine": "./immagini/airmax90.jpg"
+  },
+  {
+    "nome": "Adidas Ultraboost",
+    "descrizione": "Scarpe da running con ammortizzazione boost reattiva.",
+    "prezzo": "€159,99",
+    "immagine": "./immagini/ultraboost.jpeg"
+  },
+  {
+    "nome": "Puma RS-X",
+    "descrizione": "Sneaker moderne con stile retrò e comfort estremo.",
+    "prezzo": "€109,99",
+    "immagine": "./immagini/Puma RS-X.jpg"
+  },
+  {
+    "nome": "Converse Chuck Taylor",
+    "descrizione": "Le intramontabili sneakers in tela alte, perfette per ogni look.",
+    "prezzo": "€69,99",
+    "immagine": "./immagini/Converse Chuck Taylor.jpg"
+  },
+  {
+    "nome": "New Balance 574",
+    "descrizione": "Modello iconico con look vintage e grande comfort.",
+    "prezzo": "€99,99",
+    "immagine": "./immagini/New Balance 574.jpg"
+  },
+  {
+    "nome": "Vans Old Skool",
+    "descrizione": "Sneakers in tela e pelle con banda laterale inconfondibile.",
+    "prezzo": "€79,99",
+    "immagine": "./immagini/Vans Old Skool.jpg"
+  },
+  {
+    "nome": "Reebok Classic",
+    "descrizione": "Sneakers retrò comode e versatili per ogni occasione.",
+    "prezzo": "€89,99",
+    "immagine": "./immagini/Reebok Classic.jpg"
+  },
+  {
+    "nome": "Asics Gel-Kayano",
+    "descrizione": "Scarpe da corsa con supporto avanzato e stabilità.",
+    "prezzo": "€139,99",
+    "immagine": "./immagini/Asics Gel-Kayano.png"
+  },
+  {
+  "nome": "LV Trainer",
+  "descrizione": "Sneakers di lusso con design iconico e materiali pregiati.",
+  "prezzo": "€890,00",
+  "immagine": "immagini/LV Trainer.jpg"
+  }
+]

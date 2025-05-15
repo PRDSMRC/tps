@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carrello - PARESHOES</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Carrello - PARESHOES</h1>
+    <nav>
+      <a href="index.html">Torna al negozio</a>
+    </nav>
+  </header>
+
+  <main>
+    <div id="contenuto-carrello"></div>
+    <!-- Bottone per mostrare la ricevuta -->
+    <button id="mostra-ricevuta">Mostra Ricevuta</button>
+  </main>
+
+  <script>
+    // Seleziono il contenitore del carrello
+    const contenitore = document.getElementById("contenuto-carrello");
+    // Seleziono il bottone ricevuta
+    const bottoneRicevuta = document.getElementById("mostra-ricevuta");
+
+    // Funzione per mostrare il contenuto del carrello
+    function mostraCarrello() {
+      let carrello = JSON.parse(localStorage.getItem("carrello")) || [];
+
+      // Se il carrello è vuoto, mostro un messaggio
+      if (carrello.length === 0) {
+        contenitore.innerHTML = "<p>Il carrello è vuoto.</p>";
+        return;
+      }
+
+      // Pulisco il contenuto precedente
+      contenitore.innerHTML = "";
+
+      // Per ogni prodotto, creo una card con bottone rimuovi
+      carrello.forEach((prodotto, index) => {
+        const div = document.createElement("div");
+        div.className = "prodotto";
+
+        div.innerHTML = `
+          <h2>${prodotto.nome}</h2>
+          <img src="${prodotto.immagine}" alt="${prodotto.nome}" />
+          <p>${prodotto.descrizione}</p>
+          <p><strong>${prodotto.prezzo}</strong></p>
+          <button class="rimuovi">Rimuovi dal carrello</button>
+        `;
+
+        // Aggiungo event listener al pulsante "Rimuovi"
+        div.querySelector(".rimuovi").addEventListener("click", () => {
+          rimuoviDalCarrello(index);
+        });
+
+        contenitore.appendChild(div);
+      });
+    }
+
+    // Funzione per rimuovere un prodotto dal carrello
+    function rimuoviDalCarrello(indice) {
+      let carrello = JSON.parse(localStorage.getItem("carrello")) || [];
+      carrello.splice(indice, 1); // Rimuove un elemento all'indice specificato
+      localStorage.setItem("carrello", JSON.stringify(carrello));
+      mostraCarrello(); // Aggiorna la visualizzazione
+    }
+
+    // Carica il carrello all’avvio
+    document.addEventListener("DOMContentLoaded", mostraCarrello);
+
+    // Evento per il bottone "Mostra Ricevuta"
+    bottoneRicevuta.addEventListener("click", () => {
+      window.location.href = "ricevuta.html"; // Reindirizza alla pagina della ricevuta
+    });
+  </script>
+</body>
+</html>
