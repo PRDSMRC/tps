@@ -16,30 +16,29 @@
 
   <main>
     <div id="contenuto-carrello"></div>
-    <!-- Bottone per mostrare la ricevuta -->
     <button id="mostra-ricevuta">Mostra Ricevuta</button>
   </main>
 
   <script>
-    // Seleziono il contenitore del carrello
+ 
     const contenitore = document.getElementById("contenuto-carrello");
-    // Seleziono il bottone ricevuta
+
     const bottoneRicevuta = document.getElementById("mostra-ricevuta");
 
-    // Funzione per mostrare il contenuto del carrello
+    
     function mostraCarrello() {
       let carrello = JSON.parse(localStorage.getItem("carrello")) || [];
 
-      // Se il carrello è vuoto, mostro un messaggio
+      
       if (carrello.length === 0) {
         contenitore.innerHTML = "<p>Il carrello è vuoto.</p>";
         return;
       }
 
-      // Pulisco il contenuto precedente
+     
       contenitore.innerHTML = "";
 
-      // Per ogni prodotto, creo una card con bottone rimuovi
+      
       carrello.forEach((prodotto, index) => {
         const div = document.createElement("div");
         div.className = "prodotto";
@@ -52,7 +51,7 @@
           <button class="rimuovi">Rimuovi dal carrello</button>
         `;
 
-        // Aggiungo event listener al pulsante "Rimuovi"
+        
         div.querySelector(".rimuovi").addEventListener("click", () => {
           rimuoviDalCarrello(index);
         });
@@ -61,20 +60,19 @@
       });
     }
 
-    // Funzione per rimuovere un prodotto dal carrello
+ 
     function rimuoviDalCarrello(indice) {
       let carrello = JSON.parse(localStorage.getItem("carrello")) || [];
-      carrello.splice(indice, 1); // Rimuove un elemento all'indice specificato
+      carrello.splice(indice, 1); 
       localStorage.setItem("carrello", JSON.stringify(carrello));
-      mostraCarrello(); // Aggiorna la visualizzazione
+      mostraCarrello(); 
     }
 
-    // Carica il carrello all’avvio
+  
     document.addEventListener("DOMContentLoaded", mostraCarrello);
 
-    // Evento per il bottone "Mostra Ricevuta"
     bottoneRicevuta.addEventListener("click", () => {
-      window.location.href = "ricevuta.html"; // Reindirizza alla pagina della ricevuta
+      window.location.href = "ricevuta.html"; 
     });
   </script>
 </body>
